@@ -8,7 +8,7 @@ app = Flask(__name__)
 def serve():
     if request.method == 'POST':
         script_path = 'stress_cpu.py'
-        process = subprocess.Popen(['python', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.Popen(['python3', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         return jsonify({"message": "cpu stress test initiated"}), 200
     else:
         return jsonify({"private_ip":socket.gethostname()}), 200
